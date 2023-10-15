@@ -2,151 +2,103 @@
 const GHOSTS = [
     {
         name: "banshee",
-        evidence_1: "DOTs",
-        evidence_2: "EMF5",
-        evidence_3: "ghostOrbs"
+        evidence: ["DOTs", "EMF5", "ghostOrbs"]
     },
     {
         name: "demon",
-        evidence_1: "ultraviolet",
-        evidence_2: "freezingTemps",
-        evidence_3: "writing"
+        evidence: ["ultraviolet", "freezingTemps", "writing"]
     },
     {
         name: "deogen",
-        evidence_1: "DOTs",
-        evidence_2: "writing",
-        evidence_3: "spiritBox"
+        evidence: ["DOTs", "writing", "spiritBox"]
     },
     {
         name: "goryo",
-        evidence_1: "DOTs",
-        evidence_2: "EMF5",
-        evidence_3: "ultraviolet"
+        evidence: ["DOTs", "EMF5", "ultraviolet"]
     },
     {
         name: "hantu",
-        evidence_1: "ultraviolet",
-        evidence_2: "freezingTemps",
-        evidence_3: "ghostOrbs"
+        evidence: ["ultraviolet", "freezingTemps", "ghostOrbs"]
     },
     {
         name: "jinn",
-        evidence_1: "EMF5",
-        evidence_2: "ultraviolet",
-        evidence_3: "freezingTemps"
+        evidence: ["EMF5", "ultraviolet", "freezingTemps"]
     },
     {
         name: "mare",
-        evidence_1: "ghostOrbs",
-        evidence_2: "writing",
-        evidence_3: "spiritBox"
+        evidence: ["ghostOrbs", "writing", "spiritBox"]
     },
     {
         name: "moroi",
-        evidence_1: "freezingTemps",
-        evidence_2: "Ghost writing",
-        evidence_3: "spiritBox"
+        evidence: ["freezingTemps", "Ghost writing", "spiritBox"]
     },
     {
         name: "myling",
-        evidence_1: "EMF5",
-        evidence_2: "ultraviolet",
-        evidence_3: "writing"
+        evidence: ["EMF5", "ultraviolet", "writing"]
     },
     {
         name: "obake",
-        evidence_1: "EMF5",
-        evidence_2: "ultraviolet",
-        evidence_3: "ghostOrbs"
+        evidence: ["EMF5", "ultraviolet", "ghostOrbs"]
     },
     {
         name: "oni",
-        evidence_1: "DOTs",
-        evidence_2: "EMF5",
-        evidence_3: "freezingTemps"
+        evidence: ["DOTs", "EMF5", "freezingTemps"]
     },
     {
         name: "onryo",
-        evidence_1: "freezingTemps",
-        evidence_2: "ghostOrbs",
-        evidence_3: "spiritBox"
+        evidence: ["freezingTemps", "ghostOrbs", "spiritBox"]
     },
     {
         name: "phantom",
-        evidence_1: "DOTs",
-        evidence_2: "ultraviolet",
-        evidence_3: "spiritBox"
+        evidence: ["DOTs", "ultraviolet", "spiritBox"]
     },
     {
         name: "poltergeist",
-        evidence_1: "ultraviolet",
-        evidence_2: "writing",
-        evidence_3: "spiritBox"
+        evidence: ["ultraviolet", "writing", "spiritBox"]
     },
     {
         name: "raiju",
-        evidence_1: "DOTs",
-        evidence_2: "EMF5",
-        evidence_3: "ghostOrbs"
+        evidence: ["DOTs", "EMF5", "ghostOrbs"]
     },
     {
         name: "revenant",
-        evidence_1: "freezingTemps",
-        evidence_2: "ghostOrbs",
-        evidence_3: "writing"
+        evidence: ["freezingTemps", "ghostOrbs", "writing"]
     },
     {
         name: "shade",
-        evidence_1: "EMF5",
-        evidence_2: "freezingTemps",
-        evidence_3: "writing"
+        evidence: ["EMF5", "freezingTemps", "writing"]
     },
     {
         name: "spirit",
-        evidence_1: "EMF5",
-        evidence_2: "writing",
-        evidence_3: "spiritBox"
+        evidence: ["EMF5", "writing", "spiritBox"]
     },
     {
         name: "thaye",
-        evidence_1: "DOTs",
-        evidence_2: "ghostOrbs",
-        evidence_3: "writing"
+        evidence: ["DOTs", "ghostOrbs", "writing"]
     },
     {
         name: "mimic",
-        evidence_1: "ultraviolet",
-        evidence_2: "freezingTemps",
-        evidence_3: "ghostOrbs"
+        evidence: ["ultraviolet", "freezingTemps", "ghostOrbs"]
     },
     {
         name: "twins",
-        evidence_1: "EMF5",
-        evidence_2: "freezingTemps",
-        evidence_3: "spiritBox"
+        evidence: ["EMF5", "freezingTemps", "spiritBox"]
     },
     {
         name: "wraith",
-        evidence_1: "DOTs",
-        evidence_2: "EMF5",
-        evidence_3: "spiritBox"
+        evidence: ["DOTs", "EMF5", "spiritBox"]
     },
     {
         name: "yokai",
-        evidence_1: "DOTs",
-        evidence_2: "ghostOrbs",
-        evidence_3: "spiritBox"
+        evidence: ["DOTs", "ghostOrbs", "spiritBox"]
     },
     {
         name: "yurei",
-        evidence_1: "DOTs",
-        evidence_2: "freezingTemps",
-        evidence_3: "ghostOrbs"
+        evidence: ["DOTs", "freezingTemps", "ghostOrbs"]
     }
 ]
 
-var numOfEvidence = 0;
+var evidenceCollected = [];
 
 // Uncheck all boxes on page load
 window.onload = function(){
@@ -172,22 +124,27 @@ document.querySelectorAll(".evidenceList").forEach(check => check.addEventListen
  // If there is not a match and the checkbox is checked, hide the div representing the object
  // If there is not a match and the checkbox is not checked, display the div again
 document.addEventListener('click', function (e) {
-    if (e.target.matches('input[type=checkbox]') && e.target.checked && numOfEvidence < 3) {
-        numOfEvidence++;
+
+    if (e.target.matches('input[type=checkbox]') && e.target.checked && evidenceCollected.length < 3) {
+
+        evidenceCollected.push(e.target.name);
+
         GHOSTS.forEach(function (ghost) {
-            if (ghost.evidence_1 !== e.target.name &&
-                ghost.evidence_2 !== e.target.name &&
-                ghost.evidence_3 !== e.target.name){
+            if (ghost.evidence[0] !== e.target.name &&
+                ghost.evidence[1] !== e.target.name &&
+                ghost.evidence[2] !== e.target.name){
                 document.querySelector("#" + ghost.name).style.display = "none";
             }
         }
     )}
     else if (e.target.matches('input[type=checkbox]') && e.target.checked === false) {
-        numOfEvidence--;
+        
+        evidenceCollected.pop(e.target.name);
+
         GHOSTS.forEach(function (ghost) {
-            if (ghost.evidence_1 !== e.target.name &&
-                ghost.evidence_2 !== e.target.name &&
-                ghost.evidence_3 !== e.target.name) {
+            if (ghost.evidence[0] !== e.target.name ||
+                ghost.evidence[1] !== e.target.name ||
+                ghost.evidence[2] !== e.target.name) {
                 document.querySelector("#" + ghost.name).style.display = "block";
             }
         }
