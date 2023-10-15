@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find out which ghost you have!">
+    <title>Phasmo Cheetsheet</title>
+    <link rel="stylesheet" href="./css//styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./js/script.js" defer></script>
+</head>
+<body>
+    <h1>👻 GhooOOoooOOooosts 👻</h1>
+
+    <h3>Evidence</h3>
+    <form>
+        <label for="EMF5" class="EMF">EMF 5</label>
+        <input type="checkbox" name="EMF5" class="evidenceList" id="emfCheck">
+
+        <label for="DOTs" class="DOTs">DOTs</label>
+        <input type="checkbox" name="DOTs" class="evidenceList" id="dotCheck">
+
+        <label for="Fingerprints" class="fingerprints">Fingerprints</label>
+        <input type="checkbox" name="fingerprints" class="evidenceList" id="fingerprintsCheck">
+
+        <label for="freezingTemps" class="freezingTemps">Freezing Temps</label>
+        <input type="checkbox" name="freezingTemps" class="evidenceList" id="freezingTempsCheck">
+
+        <label for="ghostOrbs" class="ghostOrbs">Ghost Orbs</label>
+        <input type="checkbox" name="ghostOrbs" class="evidenceList" id="ghostOrbsCheck">
+
+        <label for="writing" class="writing">Writing</label>
+        <input type="checkbox" name="writing" class="evidenceList" id="writingCheck">
+
+        <label for="spiritBox" class="spiritBox">Spirit Box</label>
+        <input type="checkbox" name="spiritBox" class="evidenceList" id="spiritCheck">
+    </form>
+
+    <section class="ghostsContainer">
+
+        <div class="ghost" id="banshee">
+            <h3>BANSHEE</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="demon">
+            <h3>DEMON</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="deogen">
+            <h3>DEOGEN</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="goryo">
+            <h3>GORYO</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="hantu">
+            <h3>HANTU</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="jinn">
+            <h3>JINN</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="mare">
+            <h3>MARE</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="moroi">
+            <h3>MOROI</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="myling">
+            <h3>MYLING</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="obake">
+            <h3>OBAKE</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="oni">
+            <h3>ONI</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="onryo">
+            <h3>ONRYO</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="phantom">
+            <h3>PHANTOM</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="poltergeist">
+            <h3>POLTERGEIST</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="raiju">
+            <h3>RAIJU</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="revenant">
+            <h3>REVENANT</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="shade">
+            <h3>SHADE</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="spirit">
+            <h3>SPIRIT</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="thaye">
+            <h3>THAYE</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                    <li class="writing"><i class="fa fa-book" aria-hidden="true"></i> Writing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="mimic">
+            <h3>THE MIMIC</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="fingerprints"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Fingerprints</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="twins">
+            <h3>THE TWINS</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="wraith">
+            <h3>WRAITH</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="EMF"><i class="fa fa-tablet" aria-hidden="true"></i> EMF 5</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="yokai">
+            <h3>YOKAI</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                    <li class="spiritBox"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Spirit Box</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ghost" id="yurei">
+            <h3>YUREI</h3>
+            <div class="evidence">
+                <ul>
+                    <li class="DOTs"><i class="fa fa-wifi" aria-hidden="true"></i> DOTs</li>
+                    <li class="freezingTemps"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Freezing Temps</li>
+                    <li class="ghostOrbs"><i class="fa fa-circle-o" aria-hidden="true"></i> Ghost Orbs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
