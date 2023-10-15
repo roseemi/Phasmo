@@ -8,7 +8,7 @@ const GHOSTS = [
     },
     {
         name: "demon",
-        evidence_1: "fingerprints",
+        evidence_1: "ultraviolet",
         evidence_2: "freezingTemps",
         evidence_3: "writing"
     },
@@ -22,18 +22,18 @@ const GHOSTS = [
         name: "goryo",
         evidence_1: "DOTs",
         evidence_2: "EMF5",
-        evidence_3: "fingerprints"
+        evidence_3: "ultraviolet"
     },
     {
         name: "hantu",
-        evidence_1: "fingerprints",
+        evidence_1: "ultraviolet",
         evidence_2: "freezingTemps",
         evidence_3: "ghostOrbs"
     },
     {
         name: "jinn",
         evidence_1: "EMF5",
-        evidence_2: "fingerprints",
+        evidence_2: "ultraviolet",
         evidence_3: "freezingTemps"
     },
     {
@@ -51,13 +51,13 @@ const GHOSTS = [
     {
         name: "myling",
         evidence_1: "EMF5",
-        evidence_2: "fingerprints",
+        evidence_2: "ultraviolet",
         evidence_3: "writing"
     },
     {
         name: "obake",
         evidence_1: "EMF5",
-        evidence_2: "fingerprints",
+        evidence_2: "ultraviolet",
         evidence_3: "ghostOrbs"
     },
     {
@@ -75,12 +75,12 @@ const GHOSTS = [
     {
         name: "phantom",
         evidence_1: "DOTs",
-        evidence_2: "fingerprints",
+        evidence_2: "ultraviolet",
         evidence_3: "spiritBox"
     },
     {
         name: "poltergeist",
-        evidence_1: "fingerprints",
+        evidence_1: "ultraviolet",
         evidence_2: "writing",
         evidence_3: "spiritBox"
     },
@@ -116,7 +116,7 @@ const GHOSTS = [
     },
     {
         name: "mimic",
-        evidence_1: "fingerprints",
+        evidence_1: "ultraviolet",
         evidence_2: "freezingTemps",
         evidence_3: "ghostOrbs"
     },
