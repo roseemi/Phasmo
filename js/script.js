@@ -101,15 +101,22 @@ const GHOSTS = [
 var evidenceCollected = [];
 
 // Uncheck all boxes on page load
-window.onload = function(){
+window.onload = resetCheckboxes();
+
+document.getElementById("reset").addEventListener("click", resetCheckboxes);
+
+// Uncheck all boxes
+function resetCheckboxes() {
     var checkboxes = document.getElementsByTagName("input");
- 
-    for (var x = 0; x < checkboxes.length; x++){
-       if (checkboxes[x].type == "checkbox"){
-           checkboxes[x].checked = false;
-       }
+
+    for (var x = 0; x < checkboxes.length; x++) {
+        if (checkboxes[x].type == "checkbox") {
+            checkboxes[x].checked = false;
+        }
     }
- }
+    document.querySelectorAll(".ghost").forEach(div => div.style.display = "block");
+    evidenceCollected = [];
+}
 
 // Limit the amount of selectable items to 3
 document.querySelectorAll(".evidenceList").forEach(check => check.addEventListener('click', function (e) {
@@ -119,34 +126,28 @@ document.querySelectorAll(".evidenceList").forEach(check => check.addEventListen
     }
 }))
 
- // Add event listeners to all checkboxes only
- // Compare each checkbox value against each ghost object evidence value
- // If there is not a match and the checkbox is checked, hide the div representing the object
- // If there is not a match and the checkbox is not checked, display the div again
+// Handle evidence and compare to ghost objects
 document.addEventListener('click', function (e) {
 
-    if (e.target.matches('input[type=checkbox]') && e.target.checked && evidenceCollected.length < 3) {
-
-        evidenceCollected.push(e.target.name);
-
-        GHOSTS.forEach(function (ghost) {
-            if (ghost.evidence[0] !== e.target.name &&
-                ghost.evidence[1] !== e.target.name &&
-                ghost.evidence[2] !== e.target.name){
-                document.querySelector("#" + ghost.name).style.display = "none";
-            }
+    if (e.target.matches('input[type=checkbox]')) {
+        if (e.target.checked && evidenceCollected.length < 3) {
+            evidenceCollected.push(e.target.name);
         }
-    )}
-    else if (e.target.matches('input[type=checkbox]') && e.target.checked === false) {
-        
-        evidenceCollected.pop(e.target.name);
+        else if (e.target.checked === false) {
+            evidenceCollected.pop(e.target.name);
+        }
+
+        let arr1 = evidenceCollected.sort();
 
         GHOSTS.forEach(function (ghost) {
-            if (ghost.evidence[0] !== e.target.name ||
-                ghost.evidence[1] !== e.target.name ||
-                ghost.evidence[2] !== e.target.name) {
+            let arr2 = ghost.evidence.sort();
+
+            if (arr1.every(val => arr2.includes(val))) {
                 document.querySelector("#" + ghost.name).style.display = "block";
             }
-        }
-    )}
+            else {
+                document.querySelector("#" + ghost.name).style.display = "none";
+            }
+        })
+    }
 })
