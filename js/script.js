@@ -151,3 +151,16 @@ document.addEventListener('click', function (e) {
         })
     }
 })
+
+var cheetoCounter = 0;
+document.querySelector(".surprise").addEventListener("click", function() {
+    if (cheetoCounter === 0) {
+        const chester = document.createElement("img");
+        chester.src = "../images/Cheetomann.png";
+        document.querySelector(".surprise").insertBefore(chester, document.querySelector("#sw-js-blob-svg"));
+        cheetoCounter++;
+    }
+    else {
+        document.querySelector("img").style.display = "none";
+    }
+})
