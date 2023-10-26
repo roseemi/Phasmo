@@ -1,100 +1,325 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    background-color: #0e0e0e;
-    font-size: 10px;
-    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: rgb(2,0,36);
+  font-size: 10px;
+  font-family: "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    color: #f4f4f4;
-    text-align: center;
-    font-size: 2rem;
+  color: #f4f4f4;
+  text-align: center;
+  font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,20,64,1) 50%, rgba(2,0,36,1) 100%);
 }
 
 h1,
 h2 {
-    font-size: 4rem;
-    line-height: 3;
+  position: relative;
+  color: #d18c8c;
+  font-size: clamp(3rem, 2rem + 1.5vw, 4rem);
+  text-shadow: 0 0 20px #c1b5c9;
+  border-bottom: 1px dashed #f4f4f4;
+  width: 90%;
+  margin: 0 auto;
+  z-index: 999;
 }
 
 h3 {
-    font-size: 2.5rem;
-    line-height: 1.5;
+  font-size: clamp(1.5rem, 1.25rem + 1.5vw, 2.5rem);
+  line-height: 1.5;
+  text-shadow: 0 0 20px #c1b5c9;
+  margin: 0.5em 0;
 }
 
 li {
-    list-style: none;
-    text-align: center;
-    display: inline-block;
-    padding: 1em;
+  list-style: none;
+  text-align: center;
+  display: inline-block;
+  padding: 0.5em;
+  text-shadow: 0 0 20px #2c282e;
+}
+
+.formWrapper {
+  padding: 1em 2em 2em;
 }
 
 form {
-    max-width: 20%;
-    margin: 0 auto;
-    border: 1px solid #f4f4f4;
-    box-sizing: border-box;
-    padding: 1em;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    text-align: left;
-    gap: 1em;
+  margin: 0 2em;
+  padding: 1em;
+  gap: 1em;
+  display: grid;
+  text-align: left;
+  grid-template-columns: 3fr 1fr;
+  box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+  background-color: rgba(103, 91, 107, 0.15);
+}
+
+form > input {
+  width: max-content;
 }
 
 #reset {
-    margin: 2em;
-    display: inline-block;
-    padding: 1em 2em;
+  margin: 2em auto;
+  height: fit-content;
+  display: block;
+  padding: 1em 2em;
+  color: #f4f4f4;
+  border-radius: 5%;
+  border: none;
+  box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+  background-color: rgba(103, 91, 107, 0.15);
 }
 
 .ghostsContainer {
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 3em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    row-gap: 2em;}
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  row-gap: 2em;
+  padding-bottom: 5em;
+}
 
 .ghost {
-    border: 1px dashed #f4f4f4;
-    background-color: #181818;
-    box-sizing: border-box;
-    padding: 1em;
-    flex-basis: 30%;
+  height: 25vh;
+  width: 100%;
+  border: 1px solid #1f1f1f;
+  background-color: #181818;
+  box-sizing: border-box;
+  padding: 1em;
+  box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
+  background-color: rgb(228 228 228 / 15%);
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ghost > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.ghost > div > h3 {
+  width: 60%;
+  border-bottom: 1px solid #f4f4f4;
+  margin-bottom: 0.5em;
 }
 
 .EMF {
-    color: rgb(233, 102, 102);
+  color: rgb(233, 102, 102);
 }
 
 .DOTs {
-    color: #3bc552;
+  color: #3bc552;
 }
 
 .ultraviolet {
-    color: #8e479c;
+  color: #b97bc5;
 }
 
 .freezingTemps {
-    color: #88b2ce;
+  color: #88b2ce;
 }
 
 .ghostOrbs {
-    color: #f1e5ce;
+  color: #f1e5ce;
 }
 
 .writing {
-    color: #8d7565;
+  color: #c7997a;
 }
 
 .spiritBox {
-    color: #e68231;
+  color: #e68231;
+}
+
+/* 
+  Source: 
+  https://codepen.io/viki-code/pen/gOqbjLN
+  https://twitter.com/viki_code
+*/
+
+#displayGhost {
+  padding-left: 1em;
+  transform-origin: center;
+}
+
+.displayGhost {
+  background: #f0f0f0;
+  width: 117px;
+  height: 150px;
+  border-radius: 100px 100px 0 0;
+  box-shadow: 0 0 50px #fff;
+  position: relative;
+  transform-origin: center;
+  animation: float 3s ease-out infinite;
+  z-index: 1;
+}
+
+.ghost__eyes {
+  display: flex;
+  gap: 25px;
+  padding-top: 44px;
+  justify-content: center;
+  position: relative;
+}
+
+.ghost__eyes_eye {
+  width: 10px;
+  height: 16px;
+  background: #f0f0f0;
+  border: 4px solid #ccc;
+  border-radius: 100px;
+  clip-path: polygon(100% 50%, 100% 100%, 0 100%, 0 50%);
+  transition: 0.1s;
+}
+
+.ghost__mouth {
+  width: 44px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 10px;
+  margin: 16px auto 0;
+  position: relative;
+  animation: sleep 3s ease-out infinite;
+  transition: 0.1s;
+}
+
+.ghost__mouth:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 8px;
+  height: 14px;
+  background: #ccc;
+  border-radius: 10px;
+  animation: drool 3s ease-out infinite;
+}
+
+.ghost__waves {
+  display: flex;
+  position: absolute;
+  bottom: -20px;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ghost__wave {
+  width: 117px;
+  height: 50px;
+  background: #f0f0f0;
+  flex-shrink: 0;
+
+  animation: ghost 3s linear infinite;
+  transform: translateX(-117px);
+
+  --size: 10px;
+  --p: 5px;
+  --R: 11.18px;
+
+  -webkit-mask: radial-gradient(
+        var(--R) at 50% calc(100% - (var(--size) + var(--p))),
+        blue 99%,
+        #0000 101%
+      )
+      calc(50% - 2 * var(--size)) 0 / calc(4 * var(--size)) 100%,
+    radial-gradient(var(--R) at 50% calc(100% + var(--p)), #0000 99%, red 101%)
+      50% calc(100% - var(--size)) / calc(4 * var(--size)) 100% repeat-x;
+}
+
+@keyframes sleep {
+  0% {
+    width: 44px;
+  }
+  50% {
+    width: 26px;
+  }
+  100% {
+    width: 44px;
+  }
+}
+
+@keyframes drool {
+  0% {
+    height: 14px;
+  }
+  50% {
+    height: 20px;
+  }
+  100% {
+    height: 14px;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translate(0, 20px);
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  h1,
+  h2 {
+    width: 70%;
+  }
+
+  form {
+    margin: 0 auto;
+    max-width: 70%;
+  }
+
+  form > input {
+    width: 20px;
+    margin: 0 auto;
+  }
+
+  .ghost {
+    flex-basis: 45%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  h1,
+  h2 {
+    width: 50%;
+  }
+
+  form {
+    max-width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  h1,
+  h2 {
+    width: 30%;
+  }
+
+  form {
+    max-width: 30%;
+  }
+
+  .ghost {
+    flex-basis: 30%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  form {
+    max-width: 20%;
+  }
 }
