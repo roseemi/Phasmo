@@ -99,24 +99,13 @@ const GHOSTS = [
 ]
 
 var evidenceCollected = [];
+var possibleEvidence = [];
+var cheetoCounter = 0;
 
 // Uncheck all boxes on page load
 window.onload = resetCheckboxes();
 
 document.getElementById("reset").addEventListener("click", resetCheckboxes);
-
-// Uncheck all boxes
-function resetCheckboxes() {
-    var checkboxes = document.getElementsByTagName("input");
-
-    for (var x = 0; x < checkboxes.length; x++) {
-        if (checkboxes[x].type == "checkbox") {
-            checkboxes[x].checked = false;
-        }
-    }
-    document.querySelectorAll(".ghost").forEach(div => div.style.display = "block");
-    evidenceCollected = [];
-}
 
 // Limit the amount of selectable items to 3
 document.querySelectorAll(".evidenceList").forEach(check => check.addEventListener('click', function (e) {
@@ -134,7 +123,8 @@ document.addEventListener('click', function (e) {
             evidenceCollected.push(e.target.name);
         }
         else if (e.target.checked === false) {
-            evidenceCollected.pop(e.target.name);
+            let i = evidenceCollected.indexOf(e.target.name);
+            evidenceCollected.splice(i, 1);
         }
 
         let arr1 = evidenceCollected.sort();
@@ -149,11 +139,14 @@ document.addEventListener('click', function (e) {
                 document.querySelector("#" + ghost.name).style.display = "none";
             }
         })
+
+        findPossibleEvidence();
+        greyOutImpossibleOptions();
     }
 })
 
-var cheetoCounter = 0;
-document.querySelector(".surprise").addEventListener("click", function() {
+// Cheeto :)
+document.querySelector(".surprise").addEventListener("click", function () {
     if (cheetoCounter === 0 && document.querySelector(".surprise").childElementCount <= 1) {
         const chester = document.createElement("img");
         chester.src = "./images/Cheetomann.png";
@@ -169,3 +162,46 @@ document.querySelector(".surprise").addEventListener("click", function() {
         cheetoCounter--;
     }
 })
+
+// Uncheck all boxes
+function resetCheckboxes() {
+    var checkboxes = document.getElementsByTagName("input");
+
+    for (var x = 0; x < checkboxes.length; x++) {
+        if (checkboxes[x].type == "checkbox") {
+            checkboxes[x].checked = false;
+        }
+    }
+    document.querySelectorAll(".ghost").forEach(div => div.style.display = "block");
+    document.querySelectorAll("label").forEach(label => label.style.color = "");
+    document.querySelectorAll("label").forEach(label => label.style.textDecoration = "none");
+    evidenceCollected = [];
+}
+
+// Read the ghost divs to see which evidence is possible
+function findPossibleEvidence() {
+    possibleEvidence = [];
+    document.querySelectorAll(".ghost").forEach(function (div) {
+        if (div.style.display === "block") {
+            div.querySelectorAll("li").forEach(function (li) {
+                if (!possibleEvidence.includes(li.className) && !evidenceCollected.includes(li.className)) {
+                    possibleEvidence.push(li.className);
+                }
+            });
+        }
+    });
+}
+
+// Grey out the labels of impossible evidence options
+function greyOutImpossibleOptions() {
+    document.querySelectorAll("label").forEach(function(label){
+        if (!possibleEvidence.includes(label.className) && !evidenceCollected.includes(label.className)) {
+            label.style.color = "grey";
+            label.style.textDecoration = "line-through";
+        }
+        else {
+            label.style.color = "";
+            label.style.textDecoration = "none";
+        }
+    });
+}
