@@ -78,7 +78,7 @@ const GHOSTS = [
     },
     {
         name: "mimic",
-        evidence: ["ultraviolet", "freezingTemps", "spiritBox"]
+        evidence: ["ultraviolet", "freezingTemps", "spiritBox", "ghostOrbs"]
     },
     {
         name: "twins",
@@ -120,6 +120,9 @@ document.addEventListener('click', function (e) {
 
     if (e.target.matches('input[type=checkbox]')) {
         if (e.target.checked && evidenceCollected.length < 3) {
+            evidenceCollected.push(e.target.name);
+        }
+        else if (e.target.checked && e.target.name === "ghostOrbs") {
             evidenceCollected.push(e.target.name);
         }
         else if (e.target.checked === false) {
