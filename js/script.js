@@ -2,7 +2,7 @@
 const GHOSTS = [
     {
         name: "banshee",
-        evidence: ["DOTs", "EMF5", "ghostOrbs"]
+        evidence: ["DOTs", "ultraviolet", "ghostOrbs"]
     },
     {
         name: "demon",
@@ -78,7 +78,7 @@ const GHOSTS = [
     },
     {
         name: "mimic",
-        evidence: ["ultraviolet", "freezingTemps", "ghostOrbs"]
+        evidence: ["ultraviolet", "freezingTemps", "spiritBox"]
     },
     {
         name: "twins",
@@ -154,13 +154,18 @@ document.addEventListener('click', function (e) {
 
 var cheetoCounter = 0;
 document.querySelector(".surprise").addEventListener("click", function() {
-    if (cheetoCounter === 0) {
+    if (cheetoCounter === 0 && document.querySelector(".surprise").childElementCount <= 1) {
         const chester = document.createElement("img");
         chester.src = "./images/Cheetomann.png";
         document.querySelector(".surprise").insertBefore(chester, document.querySelector("#sw-js-blob-svg"));
         cheetoCounter++;
     }
-    else {
+    else if (cheetoCounter === 0) {
+        document.querySelector("img").style.display = "block";
+        cheetoCounter++;
+    }
+    else if (cheetoCounter === 1) {
         document.querySelector("img").style.display = "none";
+        cheetoCounter--;
     }
 })

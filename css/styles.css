@@ -17,6 +17,7 @@ body {
   font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,20,64,1) 50%, rgba(2,0,36,1) 100%);
   position: relative;
+  overflow-x: hidden;
 }
 
 h1,
