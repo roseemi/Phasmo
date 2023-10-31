@@ -10,7 +10,7 @@ html {
   */
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,20,64,1) 50%, rgba(2,0,36,1) 100%);
-  background-image: url("/images/background_alt.webp");
+  background-image: url("https://i.ibb.co/rtSKkBB/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 10px;
