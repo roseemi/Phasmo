@@ -7,29 +7,30 @@
 html {
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,20,64,1) 50%, rgba(2,0,36,1) 100%);
+  background-image: url("/images/background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: 10px;
   font-family: "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 body {
+  position: relative;
   color: #f4f4f4;
   text-align: center;
   font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,20,64,1) 50%, rgba(2,0,36,1) 100%);
-  position: relative;
   overflow-x: hidden;
 }
 
 h1,
 h2 {
-  position: relative;
-  color: #d18c8c;
   font-size: clamp(3rem, 2rem + 1.5vw, 4rem);
+  line-height: 1.5;
   text-shadow: 0 0 20px #c1b5c9;
-  border-bottom: 1px dashed #f4f4f4;
-  width: 90%;
-  margin: 0 auto;
-  z-index: 999;
+  margin: 0.5em auto;
+  width: 60%;
+  border-bottom: 1px solid #f4f4f4;
+  text-align: center;
 }
 
 h3 {
@@ -47,27 +48,30 @@ li {
   text-shadow: 0 0 20px #2c282e;
 }
 
-.formWrapper {
+body > section {
+  padding-top: 2em;
+  position: relative;
+  padding-bottom: 5em;
+  height: 100%;
+}
+
+.evidence-form-wrapper {
   padding: 1em 2em 2em;
 }
 
-form {
-  margin: 0 2em;
+#evidence-form {
+  margin: 0 1.5em 1.5em;
   padding: 1em;
   gap: 1em;
-  display: grid;
   text-align: left;
-  grid-template-columns: 3fr 1fr;
   box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
-  background-color: rgba(103, 91, 107, 0.15);
-}
-
-form > input {
-  width: max-content;
+  background-color: rgba(61, 53, 63, 0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 0.2em;
 }
 
 #reset {
-  margin: 2em auto;
+  margin: 1em auto;
   height: fit-content;
   display: block;
   padding: 1em 2em;
@@ -86,22 +90,23 @@ form > input {
   justify-content: space-evenly;
   align-items: center;
   row-gap: 2em;
-  padding-bottom: 5em;
 }
 
 .ghost {
-  height: 25vh;
+  height: auto;
   width: 100%;
   border: 1px solid #1f1f1f;
   background-color: #181818;
   box-sizing: border-box;
   padding: 1em;
-  box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);
-  background-color: rgb(228 228 228 / 15%);
+  box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 25%);
+  background-color: rgb(228 228 228 / 5%);
   margin: 0 auto;
   justify-content: center;
   align-items: center;
   position: relative;
+  backdrop-filter: blur(5px);
+  border-radius: 0.2em;
 }
 
 .ghost > div {
@@ -109,8 +114,8 @@ form > input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .ghost > div > h3 {
@@ -147,6 +152,57 @@ form > input {
   color: #e68231;
 }
 
+.evidence-form-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+label {
+  border: 1px solid #444444;
+  border-radius: 0.3em;
+  padding: 1em;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  flex-basis: 100%;
+}
+
+label input {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
+  display: block;
+}
+
+label span {
+  height: 1em;
+  width: 1em;
+  border: 1px solid #6e6e6e;
+  box-shadow: 0px 0px 10px 5px rgba(133, 133, 133, 0.3);
+  display: block;
+  margin: 0 auto 1em;
+}
+
+[type=checkbox]:checked + span {
+  background: rgb(136, 21, 21);
+}
+
+.sanity {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  width: 60%;
+  margin-top: 0.5em;
+}
+
+.sanity > p {
+  color: rgb(214, 146, 146);
+}
+
 .surprise {
   position: absolute;
   bottom: 0;
@@ -178,132 +234,6 @@ form > input {
     transform: rotate(0deg);
   }
 }
-/* 
-  Source: 
-  https://codepen.io/viki-code/pen/gOqbjLN
-  https://twitter.com/viki_code
-*/
-
-#displayGhost {
-  padding-left: 1em;
-  transform-origin: center;
-}
-
-.displayGhost {
-  background: #f0f0f0;
-  width: 117px;
-  height: 150px;
-  border-radius: 100px 100px 0 0;
-  box-shadow: 0 0 50px #fff;
-  position: relative;
-  transform-origin: center;
-  animation: float 3s ease-out infinite;
-  z-index: 1;
-}
-
-.ghost__eyes {
-  display: flex;
-  gap: 25px;
-  padding-top: 44px;
-  justify-content: center;
-  position: relative;
-}
-
-.ghost__eyes_eye {
-  width: 10px;
-  height: 16px;
-  background: #f0f0f0;
-  border: 4px solid #ccc;
-  border-radius: 100px;
-  clip-path: polygon(100% 50%, 100% 100%, 0 100%, 0 50%);
-  transition: 0.1s;
-}
-
-.ghost__mouth {
-  width: 44px;
-  height: 8px;
-  background: #ccc;
-  border-radius: 10px;
-  margin: 16px auto 0;
-  position: relative;
-  animation: sleep 3s ease-out infinite;
-  transition: 0.1s;
-}
-
-.ghost__mouth:before {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 0;
-  width: 8px;
-  height: 14px;
-  background: #ccc;
-  border-radius: 10px;
-  animation: drool 3s ease-out infinite;
-}
-
-.ghost__waves {
-  display: flex;
-  position: absolute;
-  bottom: -20px;
-  height: 50px;
-  width: 100%;
-  overflow: hidden;
-}
-
-.ghost__wave {
-  width: 117px;
-  height: 50px;
-  background: #f0f0f0;
-  flex-shrink: 0;
-
-  animation: ghost 3s linear infinite;
-  transform: translateX(-117px);
-
-  --size: 10px;
-  --p: 5px;
-  --R: 11.18px;
-
-  -webkit-mask: radial-gradient(
-        var(--R) at 50% calc(100% - (var(--size) + var(--p))),
-        blue 99%,
-        #0000 101%
-      )
-      calc(50% - 2 * var(--size)) 0 / calc(4 * var(--size)) 100%,
-    radial-gradient(var(--R) at 50% calc(100% + var(--p)), #0000 99%, red 101%)
-      50% calc(100% - var(--size)) / calc(4 * var(--size)) 100% repeat-x;
-}
-
-@keyframes sleep {
-  0% {
-    width: 44px;
-  }
-  50% {
-    width: 26px;
-  }
-  100% {
-    width: 44px;
-  }
-}
-
-@keyframes drool {
-  0% {
-    height: 14px;
-  }
-  50% {
-    height: 20px;
-  }
-  100% {
-    height: 14px;
-  }
-}
-
-@keyframes float {
-  50% {
-    transform: translate(0, 20px);
-  }
-}
-
 
 @media only screen and (min-width: 768px) {
   h1,
@@ -311,14 +241,13 @@ form > input {
     width: 70%;
   }
 
-  form {
-    margin: 0 auto;
-    max-width: 70%;
+  #evidence-form {
+    margin: 0 auto 2em;
+    max-width: 80%;
   }
 
-  form > input {
-    width: 20px;
-    margin: 0 auto;
+  label {
+    flex-basis: 45%;
   }
 
   .ghost {
@@ -332,8 +261,8 @@ form > input {
     width: 50%;
   }
 
-  form {
-    max-width: 50%;
+  label {
+    flex-basis: 30%;
   }
 
   .surprise {
@@ -348,8 +277,8 @@ form > input {
     width: 30%;
   }
 
-  form {
-    max-width: 30%;
+  label {
+    flex-basis: 20%;
   }
 
   .ghost {
@@ -363,12 +292,18 @@ form > input {
 }
 
 @media only screen and (min-width: 1440px) {
-  form {
-    max-width: 20%;
+  #evidence-form {
+    max-width: 60%;
   }
 
   .surprise {
     width: 5vw;
     height: 2vh;
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  label {
+    flex-basis: 12%;
   }
 }
